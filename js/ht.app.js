@@ -134,9 +134,9 @@
    		var me = this;
    		var help = this.help = new Q.Bitmap({
    			image: ns.R.help,
-   			rect: [0,0,426,308],
+   			rect: [0,0,508,619],
    			x: 75,
-   			y: 230,
+   			y: 30,
    			alpha:0
    		});
    			
