@@ -107,70 +107,70 @@
 
         var em = this.evtManager = new Q.EventManager();
         em.registerStage(this.stage, this.events, true, true);
-		
-		this.initBackground();
-		this.showHelp();
+        
+        this.initBackground();
+        this.showHelp();
         
 
         var timer = this.timer = new Q.Timer(1000 / this.fps);
         timer.addListener(this.stage);
         timer.addListener(Q.Tween);
         timer.start();
-		
-		this.bgAudio = new Q.Audio("audios/menu_music.m4a", true, true, true);
+        
+        this.bgAudio = new Q.Audio("audios/menu_music.m4a", true, true, true);
         this.showFPS();
     };
     
     game.initBackground = function(){
-    	this.background = new Q.Bitmap({
+        this.background = new Q.Bitmap({
             id: "background",
             image: ns.R.background,
             transformEnabled: false
         });
         this.stage.addChild(this.background);
     };
-   	
-   	game.showHelp = function(){
-   		var me = this;
-   		var help = this.help = new Q.Bitmap({
-   			image: ns.R.help,
-   			rect: [0,0,426,308],
-   			x: 75,
-   			y: 230,
-   			alpha:0
-   		});
-   			
-   		this.help.onEvent = function(e){
-   			if (e.type == game.events[0]){
-   				me.hideHelp();
-   				me.initUI();
-		        me.initScore();
-		        me.initPlayer();
-		        me.initGround();
-   			}
-   		}
-   		me.stage.addChild(help);
-   		
-   		Q.Tween.to(me.help, {
-		    alpha: 1
-		}, {
-		    time: 300,
-		    delay: 100
-		});
-   	};
-   	
-   	game.hideHelp = function(){
-   		var me = this;
-   		Q.Tween.to(me.help, {
-		    alpha: 0
-		}, {
-		    time: 200,
-		    delay: 0,
-		    onComplete: function() {
-		        me.help.parent.removeChild(me.help);
-		    }
-		});
-   	};
+    
+    game.showHelp = function(){
+        var me = this;
+        var help = this.help = new Q.Bitmap({
+            image: ns.R.help,
+            rect: [0,0,426,308],
+            x: 75,
+            y: 230,
+            alpha:0
+        });
+            
+        this.help.onEvent = function(e){
+            if (e.type == game.events[0]){
+                me.hideHelp();
+                me.initUI();
+                me.initScore();
+                me.initPlayer();
+                me.initGround();
+            }
+        }
+        me.stage.addChild(help);
+        
+        Q.Tween.to(me.help, {
+            alpha: 1
+        }, {
+            time: 300,
+            delay: 100
+        });
+    };
+    
+    game.hideHelp = function(){
+        var me = this;
+        Q.Tween.to(me.help, {
+            alpha: 0
+        }, {
+            time: 200,
+            delay: 0,
+            onComplete: function() {
+                me.help.parent.removeChild(me.help);
+            }
+        });
+    };
 
     game.initUI = function() {
         this.htContainer = new Q.DisplayObjectContainer({
@@ -180,7 +180,7 @@
             eventChildren: false,
             transformEnabled: false
         });
-        	
+            
         this.htPointer = new Q.DisplayObjectContainer({
             id: "htPointer",
             width: this.width,
@@ -203,14 +203,14 @@
 //                    game.bgAudio.load();
 //                }
             }else if(e.type == game.events[2]){
-            	game.vega.move({
-            		x: e.eventX,
-            		y: e.eventY	
-            	});
-            	game.groundManager.listen({
-            		x: e.eventX,
-            		y: e.eventY	
-            	});
+                game.vega.move({
+                    x: e.eventX,
+                    y: e.eventY 
+                });
+                game.groundManager.listen({
+                    x: e.eventX,
+                    y: e.eventY 
+                });
             }
         };
 
@@ -218,7 +218,7 @@
     };
     
     game.initScore = function(){
-    	 this.scoreContainer = new Q.DisplayObjectContainer({
+         this.scoreContainer = new Q.DisplayObjectContainer({
             id: "scoreContainer",
             x: 380,
             y: 150,
@@ -227,33 +227,33 @@
             eventChildren: false,
             transformEnabled: false
         });
-        	
+            
         var hint = new Q.Bitmap({
-        	image: ns.R.score.image,
-        	rect: ns.R.score.hint	
+            image: ns.R.score.image,
+            rect: ns.R.score.hint   
         });
         this.scoreContainer.addChild(hint);
         
         var num = this.num = new ns.Num({
-		    id: "coinNum",
-		    src: ns.R.score,
-		    max: 6,
-		    gap: 3,
-		    autoAddZero: true,
-		    offsetX: 30
-		});
+            id: "coinNum",
+            src: ns.R.score,
+            max: 6,
+            gap: 3,
+            autoAddZero: true,
+            offsetX: 30
+        });
         this.scoreContainer.addChild(num);
-        	
-    	game.htContainer.addChild(this.scoreContainer);
+            
+        game.htContainer.addChild(this.scoreContainer);
     };
     
     game.initGround = function(){
-    	this.groundManager = new ns.GroundManager(this.htContainer);
+        this.groundManager = new ns.GroundManager(this.htContainer);
     };
 
     game.initPlayer = function() {
-    	this.vega = new ns.Vega(ns.R.vega);
-    	this.player = new ns.Player();
+        this.vega = new ns.Vega(ns.R.vega);
+        this.player = new ns.Player();
         this.htPointer.addChild(this.vega);
     };
 

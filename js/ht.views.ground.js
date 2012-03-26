@@ -17,16 +17,16 @@
 		var me = this;
 		if(props){
 			Q.Tween.to(me, {
-			    x: props.x,
-			    y: props.y,
-			    alpha: 0
+				x: props.x,
+				y: props.y,
+				alpha: 0
 			}, {
-			    time: 300,
-			    delay: 0,
-			    onComplete: function() {
+				time: 300,
+				delay: 0,
+				onComplete: function() {
 					me.parent.removeChild(me);
-			        //trace("tween end");
-			    }
+					//trace("tween end");
+				}
 			});
 		}else{
 			me.parent.removeChild(me);
