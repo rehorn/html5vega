@@ -6,7 +6,8 @@ var R = ns.R = {};
 
 R.sources = 
 [
-	{id:"background", size:545, src:"images/background2.png?"+Math.random()},
+	{id:"background", size:545, src:"images/background.jpg?"+Math.random()},
+	{id:"background2", size:545, src:"images/background3.jpg?"+Math.random()},
 	{id:"help", size:16, src:"images/help.png?"+Math.random()},
 	{id:"score", size:16, src:"images/score.png?"+Math.random()},
 	{id:"ground", size:16, src:"images/ground.png?"+Math.random()},
@@ -22,6 +23,7 @@ R.init = function(images)
 
 R.initResources = function(){
 	this.background = this.getImage("background");
+	this.background2 = this.getImage("background2");
 	this.help = this.getImage("help");
 	var vega = this.vega = {
 		image:this.getImage("ground2"),

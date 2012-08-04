@@ -9,7 +9,7 @@
 	var GroundManager = ns.GroundManager = function(container){
 		this.items = {};
 		this.startX = 10;
-		this.startY = 180;
+		this.startY = 120;
 		this.itemCountX = 6;
 		this.itemCountY = 6;
 		this.itemWidth = 90;
@@ -78,13 +78,13 @@
 		this.container.addChild(item);
 		this.items[i+','+j] = item;
 		Q.Tween.to(item, {
-			alpha: 1
+		    alpha: 1
 		}, {
-			time: 300,
-			delay: 20,
-			onComplete: function() {
-				//trace("tween end");
-			}
+		    time: 300,
+		    delay: 20,
+		    onComplete: function() {
+		        //trace("tween end");
+		    }
 		});
 		
 		game.player.addPoint(type);
@@ -160,29 +160,29 @@
 		}
 		var cellIndex = this.getCellCenterPointByIndex(cellIndex);
 		var coin = new ns.Num({
-			id: "coinNum_" + Math.random(),
-			src: ns.R.score,
-			max: 3,
-			gap: 1,
-			alpha: 1,
-			x: cellIndex.x - 35,
-			y: cellIndex.y - 20,
-			scaleX: 1.5,
-			scaleY: 1.5,
-			autoAddZero: false
+		    id: "coinNum_" + Math.random(),
+		    src: ns.R.score,
+		    max: 3,
+		    gap: 1,
+		    alpha: 1,
+		    x: cellIndex.x - 35,
+		    y: cellIndex.y - 20,
+		    scaleX: 1.5,
+		    scaleY: 1.5,
+		    autoAddZero: false
 		});
 		coin.setValue(c);
 		this.container.addChild(coin);
 		Q.Tween.to(coin, {
-			x: cellIndex.x - 35,
-			y: cellIndex.y - 20 - 100,
-			alpha: 0
+		    x: cellIndex.x - 35,
+		    y: cellIndex.y - 20 - 100,
+		    alpha: 0
 		}, {
-			time: 1500,
-			delay: 0,
-			onComplete: function() {
+		    time: 1500,
+		    delay: 0,
+		    onComplete: function() {
 				coin.parent.removeChild(coin);
-			}
+		    }
 		});
 	};
 	
