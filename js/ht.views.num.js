@@ -41,6 +41,7 @@
         var str = val.toString(),
             len = this.children.length,
             positive = val > 0;
+
         if (this.autoAddZero) {
             var count = this.addSign ? len - 1 : len;
             while (str.length < count) str = "0" + str;

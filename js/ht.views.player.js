@@ -66,6 +66,9 @@
     };
     
     Player.prototype.setValue = function(){
+        if(this.score <0){
+            this.score = 0;
+        }
         game.num.setValue(this.score);
         //console.log('score:' + this.score);
     };

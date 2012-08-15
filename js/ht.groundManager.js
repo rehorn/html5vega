@@ -112,7 +112,7 @@
             };
             var curScore = game.player.score;
             game.player.addPoint(typeMap[cellValue]);
-            var curScore = game.player.score;
+            var curScore2 = game.player.score;
             this.showCoins(cellIndex, curScore, curScore2);
         }
     };
