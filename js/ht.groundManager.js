@@ -95,7 +95,14 @@
 		if(this.checkCellIndex(cellIndex) && this.ground[cellIndex.i][cellIndex.j] == 1){
 			this.replaceItem(cellIndex, type);
 			this.groundMerge(cellIndex);
-			game.vega.next();
+			// is game over
+			if(this.isNoFreeGround()){
+				if(confirm('风雨过后见彩虹，再奋斗一次？')){
+					location.reload();	
+				}
+			}else{
+				game.vega.next();
+			}
 		}
 	};
 	
@@ -301,5 +308,17 @@
 			game.vega.moveTo(props);
 		}
 	};
+	
+	GroundManager.prototype.isNoFreeGround = function(){
+		for(var i = 0; i < this.itemCountX; i++)	{
+			for(var j = 0; j < this.itemCountY; j++){
+				if(this.ground[i][j] == 1){
+					return false;
+				}
+			}
+		}
+		return true;
+	};
+	
 	
 })();
