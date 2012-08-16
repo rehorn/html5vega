@@ -13,10 +13,10 @@
         this.id = Q.UIDUtil.createUID("Vega");
         this.ratioCount = 0;
         var typeRatioMap = {
-            1: 2, // 铲子出现概率
+            1: 5, // 铲子出现概率
             2: 40,
-            3: 29,
-            4: 29
+            3: 35,
+            4: 30
         };
         this.typeArray = [];
         for(var key in typeRatioMap){

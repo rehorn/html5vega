@@ -159,7 +159,7 @@
 		        me.initScore();
 		        me.initPlayer();
 		        me.initGround();
-                // record(game.player.score);
+                record(game.player.score);
    			}
    		}
    		me.stage.addChild(help);

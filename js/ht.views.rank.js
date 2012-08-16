@@ -67,17 +67,34 @@ function hideMask() {
 var isSignBoxShow = false;
 function record(n) {
     var _user = $DOC.querySelector('#user-name'),
+        _score = $DOC.querySelector('#game-scroe'),
         _signBox = $DOC.querySelector('#sign'),
         _name = Store.getLastUser();
     
     SCORE = n || 0;
+    _score.innerHTML = SCORE;
     _user.value = _name;
     
     showMask();
-    _signBox.style.left = ($viewWidth - 280) / 2 + 'px';
-    _signBox.style.top = ($viewHeight - 50) / 2 + 'px';
     _signBox.style.display = 'block';
+    // _signBox.style.right = ($viewWidth - _signBox.offsetWidth) / 2 + 'px';
+    _signBox.style.top = ($viewHeight - _signBox.offsetHeight) / 2 + 'px';
+    _signBox.style.opacity = 1;
     isSignBoxShow = true;
+}
+
+function hideSignBox(cb) {
+    var _user = $DOC.querySelector('#user-name').value || 'guest',
+        _signBox = $DOC.querySelector('#sign');
+    
+    Store.setScore(_user, SCORE);
+    _signBox.style.display = 'none';
+    _signBox.style.opacity = 0;
+    _signBox.style.bottom = 0;
+    _signBox.style.right = 0;
+    isSignBoxShow = false;
+    
+    cb && cb();
 }
 
 //按照分数排序Store里的数据
@@ -128,18 +145,6 @@ function showRank() {
 $win.addEventListener('load', function() {
     Store.init();
     
-    $DOC.addEventListener('keydown', function(e) {
-        if(isSignBoxShow && e.keyCode === 13) {
-            var _user = $DOC.querySelector('#user-name').value || 'guest',
-                _signBox = $DOC.querySelector('#sign');
-            
-            Store.setScore(_user, SCORE);
-            _signBox.style.display = 'none';
-            isSignBoxShow = false;
-            showRank();
-        }
-    });
-    
     $DOC.addEventListener('click', function(e) {
         var tgt = e.target;
         var rankBox = $DOC.querySelector('#rank');
@@ -151,8 +156,33 @@ $win.addEventListener('load', function() {
         }
     });
     
+    var isRegister = false;
+    $DOC.querySelector('#sign').addEventListener('click', function() {//要点一下sign box再注册键盘事件
+        if(!isRegister) {
+            isRegister = true;
+            $DOC.addEventListener('keydown', function(e) {
+                if(isSignBoxShow && e.keyCode === 13) {
+                    hideSignBox(showRank);
+                }
+            });
+        }
+    });
+    
+    $DOC.querySelector('#btn-showRank').addEventListener('click', function() {
+        hideSignBox(showRank);
+    });
+    
+    $DOC.querySelector('#btn-replay').addEventListener('click', function() {
+        location.reload();
+    });
+    
+    $DOC.querySelector('#btn-cancel').addEventListener('click', function() {
+        hideSignBox();
+        hideMask();
+    });
+    
     $win.record = record;
-    //record(Math.max(parseInt(Math.random()*2000), 500));//for test
+    // record(Math.max(parseInt(Math.random()*2000), 500));//for test
 });
 
 }(window, undefined));

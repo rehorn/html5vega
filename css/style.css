@@ -39,23 +39,87 @@ body,html{
 	position:static;
 }
 
+
 /* sign style */
 .sign {
+	font-family: 'Microsoft Yahei', Tahoma, simsun;
 	position: absolute;
 	z-index: 2000;
-	top: 200px;
-	left: 200px;
-	width: 250px;
-	height: 50px;
-	padding-left: 30px;
-	background-color: #FFF;
+	top: 0;
+	left: 50%;
+	margin-left: -173px;
+	padding: 20px 60px;
+	background-color: #fff;
 	border: 1px solid #CCC;
 	display: none;
-	box-shadow: 3px 2px 2px rgba(0,0,0,0.1);
+	opacity: 0;
+	-webkit-transition: all .3s ease-in-out;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	border-radius: 3px;
+}
+.sign:hover {
+	box-shadow: 0 0 30px rgba(0, 0, 0, 1);
+	opacity: 1;
+}
+.sign button {
+	display: inline-block;
+	padding: 1px 5px;
+	line-height: 18px;
+	color: #333;
+	text-align: center;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	vertical-align: middle;
+	background-color: whiteSmoke;
+	background-image: -moz-linear-gradient(top, white, #E6E6E6);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#E6E6E6));
+	background-image: -webkit-linear-gradient(top, white, #E6E6E6);
+	background-image: -o-linear-gradient(top, white, #E6E6E6);
+	background-image: linear-gradient(top, white, #E6E6E6);
+	background-repeat: repeat-x;
+	border-color: #E6E6E6 #E6E6E6 #BFBFBF;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	border: 1px solid #CCC;
+	border-bottom-color: #B3B3B3;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),0 1px 2px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),0 1px 2px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),0 1px 2px rgba(0, 0, 0, 0.05);
+	cursor: pointer;
+}
+.sign button:active {
+	background-image: none;
+	-webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15),0 1px 2px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15),0 1px 2px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15),0 1px 2px rgba(0, 0, 0, 0.05);
+	background-color: #E6E6E6;
+	outline: 0;
+}
+.sign button:hover {
+	color: #333;
+	text-decoration: none;
+	background-color: #E6E6E6;
+	background-position: 0 -15px;
+	-webkit-transition: background-position 0.1s linear;
+}
+.sign button, .sign input {
+	font: 12px 'Microsoft Yahei', Tahoma, simsun;
+}
+.sign input {
+	border: 1px solid #999;
+	background-color: #EEE;
+	padding: 2px 3px;
+}
+.sign input:focus {
+	box-shadow: 0 0 15px #C53D3F;
+	border-color: #E18E94;
+	outline: none;
 }
 
 /* rank style */
 .rank {
+	font-family: 'Microsoft Yahei', Tahoma, simsun;
 	position: absolute;
 	top: 100px;
 	left: 200px;

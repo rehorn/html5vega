@@ -6,6 +6,7 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<link rel="apple-touch-icon" href="images/cursor.png"/>
 	<link rel="apple-touch-startup-image" href="images/cursor.png" />
+	<link rel="stylesheet" type="text/css" href="http://qplus1.idqqimg.com/module/common/scrollbar/scrollstyle.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
 	<title>HTML5 - 萝莉的奋斗</title>
 </head>
@@ -18,9 +19,15 @@
 	</div>
 	<div id="fps" style="position:absolute;top:0;left:0;color:#fff;"></div>
 	<div id="sign" class="sign">
+		<h2>游戏结束，您的得分是<b id="game-scroe" style="color: green;">1000</b></h2>
 		<p>
-			<label for="user-name">玩家昵称：</label>
+			<label for="user-name">输入一个昵称：</label>
 			<input type="text" id="user-name" />
+		</p>
+		<p>
+			<button type="button" id="btn-showRank">查看排名</button>
+			<button type="button" id="btn-replay">重玩</button>
+			<button type="button" id="btn-cancel">取消</button>
 		</p>
 	</div>
 	<div id="rank" class="rank">
@@ -34,9 +41,10 @@
 			</ul>
 		</div>
 		<a href="javascript: location.reload();" title="再玩一次" id="replay-btn" class="replay-btn"></a>
-		<a class="share share-qzone" href="http://www.douban.com/link2?type=redir&vendor=bshare_qq&url=http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://html5vega.sinaapp.com/&title=萝莉的奋斗&desc=萝莉的成长史~&summary=把游戏分享到空间，让更多的人加入吧~~" title="分享到QQ空间"></a>
+		<!-- <a class="share share-qzone" href="http://www.douban.com/link2?type=redir&vendor=bshare_qq&url=http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://html5vega.sinaapp.com/&title=萝莉的奋斗&desc=萝莉的成长史~&summary=把游戏分享到空间，让更多的人加入吧~~" title="分享到QQ空间"></a>
 		<a class="share share-t" href="javascript:void((function(){var f='';var c='http://html5vega.sinaapp.com/';var e=encodeURI('1459b2ac3d2345d2a17396eec5ad3bd7');var b=encodeURI('');var a='把游戏分享到空间，让更多的人加入吧~~';var d='http://v.t.qq.com/share/share.php?url='+c+'&appkey='+e+'&site='+a+'&pic='+b+'&title='+f;window.open('http://www.douban.com/link2?type=redir&vendor=bshare_tx&url=' + encodeURIComponent(d),'','width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no')})());" title="分享到腾讯微博"></a>
 		<a class="share share-sina" href="javascript:void((function(s,d,e,r,l,p,t,z,c) {var%20f='http://v.t.sina.com.cn/share/share.php?appkey=962772401',u=z||d.location,p=['&url=',e(u),'& title=',e(t||d.title),'&source=',e(r),'&sourceUrl=',e(l),'& content=',c||'gb2312','&pic=',e(p||'')].join('');function%20a() {if(!window.open([f,p].join(''),'mb', ['toolbar=0,status=0,resizable=1,width=600,height=500,left=',(s.width- 600)/2,',top=',(s.height-600)/2].join('')))u.href=[f,p].join('');}; if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();}) (screen,document,encodeURIComponent,'','','','你的内容','&nbsp;http://html5vega.sinaapp.com/','utf-8'));" title="分享到新浪微博"></a>
+		-->
 	</div>
 	<div id="mask" class="mask"></div>
 	<script type="text/javascript" src = "js/quark.base-1.0.0.alpha.min.js"></script>
