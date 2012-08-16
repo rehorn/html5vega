@@ -93,18 +93,16 @@
     GroundManager.prototype.addGround = function(targetPoint, type){
         var cellIndex = this.getGroundByPoint(targetPoint);
         var cellValue = this.ground[cellIndex.i][cellIndex.j];
-        if(this.checkCellIndex(cellIndex) && cellValue == 1){
+        if(this.checkCellIndex(cellIndex) && cellValue == 1 && (type != 1)){
             this.replaceItem(cellIndex, type);
             this.groundMerge(cellIndex);
             // is game over
             if(this.isNoFreeGround()){
-                if(confirm('风雨过后见彩虹，再奋斗一次？')){
-                    location.reload();  
-                }
+                record(game.player.score);
             }else{
                 game.vega.next();
             }
-        }else if(cellValue == 7 || cellValue == 0){
+        }else if((cellValue == 7 || cellValue == 0) && (type == 1)){
             this.replaceItem(cellIndex, 1, true);
             var typeMap = {
                 7: 99,
@@ -114,6 +112,9 @@
             game.player.addPoint(typeMap[cellValue]);
             var curScore2 = game.player.score;
             this.showCoins(cellIndex, curScore, curScore2);
+            game.vega.next();
+        }else{
+            game.vega.next();
         }
     };
     
@@ -320,11 +321,11 @@
             if(cur == 1){
                 var props = this.getCellCenterPointByIndex(cellIndex);
                 game.vega.moveTo(props);
-                game.vega.hideShovel();
+                // game.vega.hideShovel();
             }else if(cur == 7 || cur == 0){
-                game.vega.showShovel();
+                // game.vega.showShovel();
             }else if(cur<7 && cur > 1){
-                game.vega.hideShovel();
+                // game.vega.hideShovel();
             }
         }
     };

@@ -39,3 +39,107 @@ body,html{
 	position:static;
 }
 
+/* sign style */
+.sign {
+	position: absolute;
+	z-index: 2000;
+	top: 200px;
+	left: 200px;
+	width: 250px;
+	height: 50px;
+	padding-left: 30px;
+	background-color: #FFF;
+	border: 1px solid #CCC;
+	display: none;
+	box-shadow: 3px 2px 2px rgba(0,0,0,0.1);
+}
+
+/* rank style */
+.rank {
+	position: absolute;
+	top: 100px;
+	left: 200px;
+	width: 426px;
+	height: 308px;
+	z-index: 1000;
+	display: none;
+	background: url(../images/rank.png) no-repeat center;
+	font: 14px/1.6 'Microsoft Yahei', Tahoma;
+}
+.rank .rank-list {
+	width: 350px;
+	height: 150px;
+	margin: 70px auto 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+.rank ul li {
+	line-height: 2em;
+	background-color: transparent;
+	overflow: hidden;
+	text-align: center;
+	border-bottom: 1px dashed #999;
+	-webkit-transition: all 1s ease-out;
+}
+.rank ul li:hover {
+	background-color: #BB713F;
+	text-indent: 1em;
+	border-bottom-color: 1px dashed #09F;
+}
+.rank ul li span {
+	vertical-align: middle;
+	display: inline-block;
+	text-align: left;
+}
+.rank .ranking {
+	width: 30px;
+	font-weight: bold;
+}
+.rank .user {
+	width: 100px;
+}
+.rank .score {
+	width: 50px;
+	font-weight: bold;
+	color: green;
+}
+.replay-btn {
+	position: absolute;
+	bottom: 25px;
+	left: 105px;
+	width: 220px;
+	height: 60px;
+}
+.share {
+	display: inline-block;
+	background: url(../images/share.png) no-repeat 0 0;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	bottom: 25px;
+}
+.share-qzone {
+	right: 75px;
+}
+.share-sina {
+	background-position: 0 -32px;
+	right: 25px;
+}
+.share-t {
+	background-position: 0 -150px;
+	right: 50px;
+}
+
+/* mask */
+.mask {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #444;
+	opacity: 0.5;
+	z-index: 500;
+	height: 100%;
+	width: 100%;
+	display: none;
+	-webkit-transition: all 1s ease-out;
+}

@@ -11,6 +11,21 @@
         this.state = 0;
         Vega.superClass.constructor.call(this, type);
         this.id = Q.UIDUtil.createUID("Vega");
+        this.ratioCount = 0;
+        var typeRatioMap = {
+            1: 2, // 铲子出现概率
+            2: 40,
+            3: 29,
+            4: 29
+        };
+        this.typeArray = [];
+        for(var key in typeRatioMap){
+            var value = typeRatioMap[key];
+            for(var i = 0; i < value; i++){
+                this.typeArray.push(key);
+            }
+            this.ratioCount += value;
+        }
         this.next();
     };
     Q.inherit(Vega, Q.MovieClip);
@@ -26,7 +41,8 @@
     
     Vega.prototype.next = function(){
         // 2 - 4 random
-        var rand = parseInt((Math.random() * 3)) + 2;
+        // var rand = parseInt((Math.random() * 3)) + 2;
+        var rand = parseInt(this.typeArray[parseInt((Math.random() * this.ratioCount))]);
         // rand = 6;
         this.state = rand;
         //console.log('ground'+rand);

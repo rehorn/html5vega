@@ -7,7 +7,7 @@ var R = ns.R = {};
 R.sources = 
 [
     {id:"background", size:545, src:"images/background.jpg?"+Math.random()},
-    {id:"background2", size:545, src:"images/background3.jpg?"+Math.random()},
+    {id:"background2", size:545, src:"images/background2.jpg?"+Math.random()},
     {id:"help", size:16, src:"images/help.png?"+Math.random()},
     {id:"score", size:16, src:"images/score.png?"+Math.random()},
     {id:"ground", size:16, src:"images/ground.png?"+Math.random()},

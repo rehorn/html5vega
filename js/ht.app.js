@@ -136,7 +136,7 @@
         this.background2 = new Q.Bitmap({
             id: "background2",
             image: ns.R.background2,
-            rect: [0,0,560,680],
+            rect: [0,70,560,680],
             transformEnabled: false
         });
         this.stage.addChild(this.background2);
@@ -159,6 +159,7 @@
 		        me.initScore();
 		        me.initPlayer();
 		        me.initGround();
+                // record(game.player.score);
    			}
    		}
    		me.stage.addChild(help);
@@ -234,8 +235,8 @@
     game.initScore = function(){
     	 this.scoreContainer = new Q.DisplayObjectContainer({
             id: "scoreContainer",
-            x: 20,
-            y: 90,
+            x: 380,
+            y: 95,
             width: 300,
             height: 50,
             eventChildren: false,
